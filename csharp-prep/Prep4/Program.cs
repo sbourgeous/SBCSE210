@@ -12,8 +12,8 @@ class Program
         {
             Console.Write("Please enter a number (0 to quit): ");
 
-            string respone = Console.ReadLine();
-            enterNumber = int.Parse(respone);
+            string response = Console.ReadLine();
+            enterNumber = int.Parse(response);
 
             if (enterNumber != 0)
             {
