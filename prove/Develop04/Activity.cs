@@ -3,25 +3,25 @@ using System.Threading;
 
 public class Activity
 {
-    protected string Name;
-    protected string Description;
-    protected int Duration;
+    protected string _name;
+    protected string _description;
+    protected int _duration;
 
-    public virtual void ShowIntro()
+    public void ShowIntro()
     {
         Console.Clear();
-        Console.WriteLine($"{Name}");
-        Console.WriteLine(Description);
+        Console.WriteLine($"{_name}");
+        Console.WriteLine(_description);
         Console.Write("Enter duration (seconds): ");
-        Duration = int.Parse(Console.ReadLine());
+        _duration = int.Parse(Console.ReadLine());
         Console.WriteLine("Get ready...");
         ShowSpinner(3);
     }
 
-    public virtual void ShowEnding()
+    public void ShowEnding()
     {
         Console.WriteLine("Great job!");
-        Console.WriteLine($"You completed {Name} for {Duration} seconds.");
+        Console.WriteLine($"You completed {_name} for {_duration} seconds.");
         ShowSpinner(3);
     }
 
@@ -45,8 +45,8 @@ public class Activity
         Console.WriteLine();
     }
 
-    public virtual void Run()
+    public void Run()
     {
-        Console.WriteLine("This activity does not have a specific implementation.");
+
     }
 }

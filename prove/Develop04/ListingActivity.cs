@@ -13,11 +13,11 @@ public class ListingActivity : Activity
 
     public ListingActivity()
     {
-        Name = "Listing Activity";
-        Description = "This activity will help you reflect on the good things in your life by listing them.";
+        _name = "Listing Activity";
+        _description = "This activity will help you reflect on the good things in your life by listing them.";
     }
 
-    public override void Run()
+    public new void Run()
     {
         ShowIntro();
         Random rand = new Random();
@@ -26,7 +26,7 @@ public class ListingActivity : Activity
 
         List<string> responses = new List<string>();
         Console.WriteLine("Start listing items:");
-        int endTime = Environment.TickCount + (Duration * 1000);
+        int endTime = Environment.TickCount + (_duration * 1000);
         while (Environment.TickCount < endTime)
         {
             string input = Console.ReadLine();

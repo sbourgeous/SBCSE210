@@ -4,14 +4,14 @@ public class BreathingActivity : Activity
 {
     public BreathingActivity()
     {
-        Name = "Breathing Activity";
-        Description = "This activity will help you relax by guiding you through slow breathing.";
+        _name = "Breathing Activity";
+        _description = "This activity will help you relax by guiding you through slow breathing.";
     }
 
-    public override void Run()
+    public new void Run()
     {
         ShowIntro();
-        for (int i = 0; i < Duration; i += 6)
+        for (int i = 0; i < _duration; i += 6)
         {
             Console.WriteLine("Breathe in...");
             ShowCountDown(3);

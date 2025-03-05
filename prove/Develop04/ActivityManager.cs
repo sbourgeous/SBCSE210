@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 class ActivityManager
 {
-    private List<Activity> activities = new List<Activity>
-    {
-        new BreathingActivity(),
-        new ReflectionActivity(),
-        new ListingActivity()
-    };
+    private BreathingActivity breather = new BreathingActivity();
+    private ReflectionActivity reflecter = new ReflectionActivity();
+    private ListingActivity lister = new ListingActivity();
 
     public void ShowMenu()
     {
-        while (true)
+        string choice = "";
+
+        while (choice != "4")
         {
             Console.Clear();
             Console.WriteLine("Mindfulness Program");
@@ -21,12 +21,29 @@ class ActivityManager
             Console.WriteLine("3. Listing Activity");
             Console.WriteLine("4. Exit");
             Console.Write("Select an option: ");
-            string choice = Console.ReadLine();
 
-            if (choice == "4") break;
-            if (int.TryParse(choice, out int index) && index >= 1 && index <= activities.Count)
+            choice = Console.ReadLine();
+
+            if (choice == "1")
             {
-                activities[index - 1].Run();
+                breather.Run();
+            }
+            else if (choice == "2")
+            {
+                reflecter.Run();
+            }
+            else if (choice == "3")
+            {
+                lister.Run();
+            }
+            else if (choice == "4")
+            {
+                Console.WriteLine("Goodbye!");
+            }
+            else
+            {
+                Console.WriteLine("Not a valid option please try again...");
+                Thread.Sleep(1500);
             }
         }
     }

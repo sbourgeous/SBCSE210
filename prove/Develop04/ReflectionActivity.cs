@@ -21,18 +21,18 @@ public class ReflectionActivity : Activity
 
     public ReflectionActivity()
     {
-        Name = "Reflection Activity";
-        Description = "This activity will help you reflect on times when you showed strength and resilience.";
+        _name = "Reflection Activity";
+        _description = "This activity will help you reflect on times when you showed strength and resilience.";
     }
 
-    public override void Run()
+    public new void Run()
     {
         ShowIntro();
         Random rand = new Random();
         Console.WriteLine(Prompts[rand.Next(Prompts.Count)]);
         ShowSpinner(3);
 
-        for (int i = 0; i < Duration; i += 5)
+        for (int i = 0; i < _duration; i += 5)
         {
             Console.WriteLine(Questions[rand.Next(Questions.Count)]);
             ShowSpinner(5);
